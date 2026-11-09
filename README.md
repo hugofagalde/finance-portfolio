@@ -1,4 +1,4 @@
-# Quantitative Finance & Systematic Trading Portfolio
+# Quantitative Finance Portfolio
 
 Collection of financial engineering models, stochastic risk pricing, and systematic market strategies implemented in Python.
 
