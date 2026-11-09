@@ -4,28 +4,7 @@ Collection of financial engineering models, stochastic risk pricing, and systema
 
 ---
 
-## Projects Overview
-
-### 1. Commodity Term Structure – Systematic Carry Strategy
-* **Asset Class:** Energy & Commodities (WTI Crude Oil Futures - CME/NYMEX).
-* **Core Concept:** Captures the structural risk premium (*roll yield / convenience yield*) across the term structure based on Erb & Harvey (2006).
-* **Quantitative Methodology:**
-  * Implemented linear regression (`np.polyfit`) across the first 6 active futures contracts ($F_1$ to $F_6$) to estimate the curve slope ($\frac{\partial F}{\partial T}$).
-  * Generated dynamic Long/Short signals driven by market regimes (Backwardation vs. Contango).
-  * Incorporated 1-day execution lag (`shift(1)`) to strictly prevent look-ahead bias, along with transaction cost and slippage modeling (5 bps per turnover).
-* **Performance:** Sharpe Ratio of **1.26** on the multi-month curve backtest.
-
-#### Performance & Regime Analysis
-* **Benchmark Comparison:** Over the tested period (Jan to Aug 2026), passive Buy & Hold on F1 generated a raw return of +42.45% (Sharpe 1.55) vs. +32.28% (Sharpe 1.26 net of 5 bps friction) for the systematic strategy.
-* **Economic Rationale:** 
-  * The underlying commodity experienced a strong, one-way bull market (+42% continuous drift), naturally favoring passive 100% long beta exposure with low relative realized volatility over a short horizon.
-  * The systematic Curve Slope strategy trades dynamically based on the term structure slope ($dF/dT$). During flattening or brief curve shift phases, the model reduced net exposure and absorbed rotation costs.
-  * While Buy & Hold captures pure unhedged beta in bull runs, it remains fully vulnerable to severe contango regimes and macro downturns (-50%+ drawdowns). The Term Structure strategy delivers an asymmetric profile by systematically shorting contango environments, generating uncorrelated, leveragable alpha across a full commodity cycle.
-* **Stack:** Python, Pandas, NumPy, yfinance, Matplotlib.
-
----
-
-### 2. CatBond-Architect – ILS Structuring & Quantitative Pricing
+### 1. Cat Bond – ILS Structuring & Quantitative Pricing
 * **Asset Class:** Insurance-Linked Securities (Catastrophe Bonds / Alternative Risk Transfer).
 * **Core Concept:** End-to-end investment banking pipeline for securitizing Atlantic hurricane risk into a 3-tranche Special Purpose Vehicle (SPV).
 * **Quantitative Methodology:**
