@@ -26,11 +26,11 @@ Collection of my finance/financial engineering projects, exploring different mar
 **Core Concept:** End-to-end investment banking pipeline for securitizing Atlantic hurricane risk into a 3-tranche Special Purpose Vehicle (SPV).
 
 **Quantitative Methodology:**
-- Calibrated an Aggregate Loss Model on 45+ years of NOAA/HURDAT2 hurricane data: Poisson frequency ($\hat{\lambda} = 6.85$) and Pareto tail via Hill MLE ($\hat{\alpha} = 4.38$).
-- Ran a vectorized 10,000-year Monte Carlo simulation to derive the Aggregate Exceedance Probability (AEP) curve, and structured Junior, Mezzanine and Senior tranches on VaR 80% to VaR 99.9%.
+- Calibrated an Aggregate Loss Model on 46 years of NOAA/HURDAT2 hurricane data: Poisson frequency of major hurricanes ($\hat{\lambda} = 2.91$), Pareto tail via Hill MLE ($\hat{\alpha} = 4.38$), and a landfall-based probability of hitting the portfolio.
+- Ran a vectorized 10,000-year Monte Carlo simulation to derive the Aggregate Exceedance Probability (AEP) curve, and structured Junior, Mezzanine and Senior tranches anchored on VaR quantiles.
 - Immunized collateral against interest rate risk via a SOFR Total Return Swap, pricing market spreads with a 2.5x Hard Market multiplier.
 
-**Stack:** Python, NumPy, SciPy, Matplotlib
+**Stack:** Python, NumPy, pandas, Matplotlib
 
 ---
 
@@ -39,12 +39,12 @@ Collection of my finance/financial engineering projects, exploring different mar
 - **Language:** Python 3.10+
 - **Data & Numerical Computing:** numpy, pandas, scipy, statsmodels
 - **Data sources:** NOAA/HURDAT2, Energy-Charts API (Fraunhofer ISE), FRED
-- **Visualization:** matplotlib, seaborn
+- **Visualization:** matplotlib
 
 ## Author
 
 **Hugo Fagalde**
+
 École Centrale de Lille (Engineering) & EDHEC Business School (Master in Management, Finance Track) – Dual Degree (Grad 2029)
 
 Background: CPGE MP (Mathematics & Physics)
-
