@@ -1,6 +1,6 @@
 # Quantitative Finance Portfolio
 
-Collection of financial engineering models, stochastic risk pricing, and systematic market strategies implemented in Python.
+Collection of my finance/financial engineering projects, exploring different markets, asset classes and methodologies.
 
 ---
 
