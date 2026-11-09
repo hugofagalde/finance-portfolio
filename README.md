@@ -4,30 +4,46 @@ Collection of my finance/financial engineering projects, exploring different mar
 
 ---
 
-### 1. Cat Bond – ILS Structuring & Quantitative Pricing
-* **Asset Class:** Insurance-Linked Securities (Catastrophe Bonds / Alternative Risk Transfer).
-* **Core Concept:** End-to-end investment banking pipeline for securitizing Atlantic hurricane risk into a 3-tranche Special Purpose Vehicle (SPV).
-* **Quantitative Methodology:**
-  * Calibrated an Aggregate Loss Model using 45+ years of historical NOAA/HURDAT2 hurricane data.
-  * Fitted a Poisson distribution ($\hat{\lambda} = 6.85$) for event frequency and a Pareto distribution via Hill Maximum Likelihood Estimation ($\hat{\alpha} = 4.38$) for extreme tail wind speeds.
-  * Executed a vectorized 10,000-year Monte Carlo simulation in NumPy (`np.bincount`, `np.repeat`) to derive the Aggregate Exceedance Probability (AEP) curve.
-  * Structured SPV tranches (Junior, Mezzanine, Senior) anchored on Value-at-Risk quantiles VaR 80% to VaR 99.9%.
-  * Immunized collateral against interest rate risk via a SOFR Total Return Swap (TRS) with a 15 bps haircut, pricing market spreads with a 2.5x Hard Market multiplier.
-* **Stack:** Python, NumPy, SciPy, Matplotlib.
+## 1. Battery Storage Arbitrage – France vs Germany (2019–2025)
+
+**Asset Class:** Power (European day-ahead electricity markets)
+
+**Core Concept:** Why does a battery earn less in France than in Germany, and how has the gap evolved since 2019? Simulation of a 1 MW / 2 MWh battery trading on the day-ahead market, and analysis of what drives the difference between the two countries.
+
+**Quantitative Methodology:**
+- Solved a daily linear optimisation problem (SciPy, HiGHS) on 7 years of hourly EPEX day-ahead prices, with a degradation cost scaled each year on BloombergNEF battery prices and a sensitivity analysis.
+- Ran a regression of daily battery revenues on the generation mix (solar, wind, nuclear) and the European gas price, with Newey-West standard errors.
+- A battery consistently earns more in Germany than in France, by 26% to 74% depending on the year. The main difference comes from the evening: Germany relies on gas plants, while France still has a large amount of cheap nuclear power.
+
+**Stack:** Python, pandas, NumPy, SciPy, statsmodels, Matplotlib
+
+---
+
+## 2. Cat Bond – ILS Structuring & Quantitative Pricing
+
+**Asset Class:** Insurance-Linked Securities (Catastrophe Bonds / Alternative Risk Transfer)
+
+**Core Concept:** End-to-end investment banking pipeline for securitizing Atlantic hurricane risk into a 3-tranche Special Purpose Vehicle (SPV).
+
+**Quantitative Methodology:**
+- Calibrated an Aggregate Loss Model on 45+ years of NOAA/HURDAT2 hurricane data: Poisson frequency ($\hat{\lambda} = 6.85$) and Pareto tail via Hill MLE ($\hat{\alpha} = 4.38$).
+- Ran a vectorized 10,000-year Monte Carlo simulation to derive the Aggregate Exceedance Probability (AEP) curve, and structured Junior, Mezzanine and Senior tranches on VaR 80% to VaR 99.9%.
+- Immunized collateral against interest rate risk via a SOFR Total Return Swap, pricing market spreads with a 2.5x Hard Market multiplier.
+
+**Stack:** Python, NumPy, SciPy, Matplotlib
 
 ---
 
 ## Stack & Dependencies
 
-* **Language:** Python 3.10+
-* **Data & Numerical Computing:** `numpy`, `pandas`, `scipy`
-* **Market Data & Backtesting:** `yfinance`
-* **Visualization:** `matplotlib`, `seaborn`
-
----
+- **Language:** Python 3.10+
+- **Data & Numerical Computing:** numpy, pandas, scipy, statsmodels
+- **Data sources:** NOAA/HURDAT2, Energy-Charts API (Fraunhofer ISE), FRED
+- **Visualization:** matplotlib, seaborn
 
 ## Author
 
-**Hugo Fagalde**  
-* École Centrale de Lille (Engineering) & EDHEC Business School (Master in Management, Finance Track) - Dual Degree (Grad 2029) 
-* Background: CPGE MP (Mathematics & Physics)
+**Hugo Fagalde**
+École Centrale de Lille (Engineering) & EDHEC Business School (Master in Management, Finance Track) – Dual Degree (Grad 2029)
+Background: CPGE MP (Mathematics & Physics)
+
