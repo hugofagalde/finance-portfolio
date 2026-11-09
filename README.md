@@ -45,5 +45,6 @@ Collection of my finance/financial engineering projects, exploring different mar
 
 **Hugo Fagalde**
 École Centrale de Lille (Engineering) & EDHEC Business School (Master in Management, Finance Track) – Dual Degree (Grad 2029)
+
 Background: CPGE MP (Mathematics & Physics)
 
